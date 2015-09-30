@@ -4,8 +4,12 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 
-public class MainActivity extends Activity {
+
+public class U2_A_a14gonzaloiv extends Activity {
+
+    ImageView img_cidade = (ImageView) findViewById(R.id.img_imaxe);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,4 +38,8 @@ public class MainActivity extends Activity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
+
+
 }
