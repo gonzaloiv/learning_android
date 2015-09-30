@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">U2_A_a14gonzaloiv</string>
-    <string name="action_settings">Settings</string>
-    <string name="text_clear">Clear</string>
-    <string name="text_button">Add / Clear</string>
+    <string name="action_settings">Opciones</string>
+    <string name="text_clear">Limpiar</string>
+    <string name="text_button">Añadir / Limpiar</string>
     <string name="text_label">Here is where you will see the text that you type</string>
     <string name="text_hint">Type some text and press the button</string>
     <string name="text_red">Red</string>
     <string name="text_blue">Blue</string>
     <string name="text_start">Start</string>
     <string name="text_stop">Stop</string>
-    <string name="text_image">Catedral de Santiago - Compostela</string>
+    <string name="text_image">San Sadurnino Tower - Cambados</string>
     <string name="text_toast_gal">You have selected a Galician province</string>
     <string name="text_toast_no_gal">You have not selected a Galician Province</string>
 

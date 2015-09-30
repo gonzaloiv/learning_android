@@ -45,7 +45,6 @@
         android:orientation="horizontal">
 
         <RadioButton
-            android:layout_marginRight="200dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"
@@ -62,31 +61,34 @@
         android:layout_height="3dp"
         android:background="#c0c0c0"/>
 
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:entries="@array/array_cidades" />
-
-    <Chronometer
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        />
-
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal" >
+        >
 
-        <Switch
+        <Spinner
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textOn="@string/text_start"
-            android:textOff="@string/text_stop"
-            />
+            android:entries="@array/array_cidades" />
 
-    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="top|center"
+            android:orientation="vertical" >
+            <Chronometer
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                />
 
+            <Switch
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textOn="@string/text_start"
+                android:textOff="@string/text_stop"
+                />
+         </LinearLayout>
+    </RelativeLayout>
     </LinearLayout>
 </RelativeLayout>
