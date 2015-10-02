@@ -13,45 +13,54 @@
         >
 
     <EditText
+        android:id="@+id/text_hint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/text_hint"
         android:inputType="text|textCapWords"
+        android:hint="@string/text_hint"
         android:background="@color/back_input"/>
 
     <CheckBox
+        android:id="@+id/check_clear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/text_clear" />
 
     <Button
+        android:id="@+id/button_msg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
         android:text="@string/text_button"
         android:layout_gravity="center"
+        android:onClick="onBotonTexto"
         />
 
     <TextView
+        android:id="@+id/text_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/text_label"
-        android:textColor="@color/view_font"
+        android:textColor="@color/font_red"
         />
 
     <RadioGroup
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        >
 
         <RadioButton
-            android:layout_width="wrap_content"
+            android:id="@+id/radio_red"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:checked="true"
             android:text="@string/text_red" />
 
         <RadioButton
-            android:layout_width="wrap_content"
+            android:id="@+id/radio_blue"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/text_blue"/>
     </RadioGroup>
@@ -67,28 +76,36 @@
         >
 
         <Spinner
+            android:id="@+id/spinner_provincias"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:entries="@array/array_cidades" />
+            android:entries="@array/array_provincias" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="top|center"
-            android:orientation="vertical" >
-            <Chronometer
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="top|center"
+                android:orientation="vertical" >
 
-            <Switch
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textOn="@string/text_start"
-                android:textOff="@string/text_stop"
-                />
-         </LinearLayout>
-    </RelativeLayout>
+                <Chronometer
+                    android:id="@+id/chrono"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    />
+
+                <Switch
+                    android:id="@+id/switch_chrono"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textOn="@string/text_start"
+                    android:textOff="@string/text_stop"
+                    />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
     </LinearLayout>
+
 </RelativeLayout>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="back_input">#3FFF45</color>
-    <color name="view_font">#FF0000</color>
+    <color name="font_red">#FF0000</color>
+    <color name="font_blue">#005EFF</color>
 </resources>

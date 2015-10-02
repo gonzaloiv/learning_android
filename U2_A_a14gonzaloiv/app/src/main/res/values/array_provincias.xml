@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="array_cidades">
-        <item>A Coruña</item>
+    <string-array name="array_provincias">
+        <item>A Corunha</item>
         <item>Lugo</item>
         <item>Ourense</item>
         <item>Pontevedra</item>
+        <item>Armorica</item>
     </string-array>
 </resources>

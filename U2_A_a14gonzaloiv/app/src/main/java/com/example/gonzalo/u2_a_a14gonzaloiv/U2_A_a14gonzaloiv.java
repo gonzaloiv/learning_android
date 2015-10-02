@@ -1,45 +1,1 @@
-package com.example.gonzalo.u2_a_a14gonzaloiv;
-
-import android.app.Activity;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.ImageView;
-
-
-public class U2_A_a14gonzaloiv extends Activity {
-
-    ImageView img_cidade = (ImageView) findViewById(R.id.img_imaxe);
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-
-
-
-}
+package com.example.gonzalo.u2_a_a14gonzaloiv;import android.app.Activity;import android.content.Context;import android.os.Bundle;import android.view.Menu;import android.view.MenuItem;import android.view.View;import android.widget.AdapterView;import android.widget.Button;import android.widget.CheckBox;import android.widget.Chronometer;import android.widget.CompoundButton;import android.widget.EditText;import android.widget.ImageView;import android.widget.RadioButton;import android.widget.Spinner;import android.widget.Switch;import android.widget.TextView;import android.widget.Toast;public class U2_A_a14gonzaloiv extends Activity {    private EditText text_hint;    private CheckBox check_clear;    private TextView text_label;    private RadioButton radio_blue;    private Spinner spinner_provincias;    private ImageView img_compostela;    private Chronometer chrono;    private Switch switch_chrono;    @Override    protected void onCreate(Bundle savedInstanceState) {        super.onCreate(savedInstanceState);        setContentView(R.layout.activity_main);        text_hint = (EditText) findViewById(R.id.text_hint);        check_clear = (CheckBox) findViewById(R.id.check_clear);        text_label = (TextView) findViewById(R.id.text_label);        radio_blue = (TextView) findViewById(R.id.radio_blue);        spinner_provincias = (Spinner) findViewById(R.id.spinner_provincias);        img_compostela = (ImageView) findViewById(R.id.img_compostela);        chrono = (Chronometer) findViewById(R.id.chrono);        switch_chrono = (Switch) findViewById(R.id.switch_chrono);        // Centrado de la imagen        img_compostela.setScaleType(ImageView.ScaleType.CENTER);        // Listener para el Switch de las provincias        spinner_provincias.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {            @Override            public void onItemSelected(AdapterView<?> parent, View view, int i, long l) {                Context context = parent.getContext();                int duration = Toast.LENGTH_SHORT;                CharSequence text;                if(i == 5){                    text = getResources().getString(R.string.text_toas_no_gal);                    Toast.makeText(context, text, duration);                } else {                    text = getResources().getString(R.string.text_toas_gal);                    Toast.makeText(context, text, duration);                }            }            // No se da la posibilidad            @Override            public void onNothingSelected(AdapterView<?> adapterView) {            }        });        // funcionamiento del cronómetro        switch_chrono.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {            @Override            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {                if(b==true){                    chrono.start();                } else {                    chrono.stop();                    chrono.setBase(0);                }            }        });    }    // Funciones de añadido y borrado de texto    public void onBotonTexto(View v){        if(check_clear.isChecked()){            text_label.setText("");            text_hint.setText("");        } else {            text_label.append(text_hint.getText());            text_hint.setText("");        }    }    // Cambio de color con el RadioButton    public void onRadioCor(View v){        if(radio_blue.isChecked()){            text_label.setTextColor(getResources().getColor(R.color.font_blue));        } else {            text_label.setTextColor(getResources().getColor(R.color.font_red));        }    }    // Mensaje de la imagen    public void onImageClick(View v){        Context context = getParent().getBaseContext();        String text = img_compostela.getTag().toString();        int duration = Toast.LENGTH_SHORT;        //Creación del Toast        Toast.makeText(context, text, duration);    }    @Override    public boolean onCreateOptionsMenu(Menu menu) {        // Inflate the menu; this adds items to the action bar if it is present.        getMenuInflater().inflate(R.menu.menu_main, menu);        return true;    }    @Override    public boolean onOptionsItemSelected(MenuItem item) {        // Handle action bar item clicks here. The action bar will        // automatically handle clicks on the Home/Up button, so long        // as you specify a parent activity in AndroidManifest.xml.        int id = item.getItemId();        //noinspection SimplifiableIfStatement        if (id == R.id.action_settings) {            return true;        }        return super.onOptionsItemSelected(item);    }}

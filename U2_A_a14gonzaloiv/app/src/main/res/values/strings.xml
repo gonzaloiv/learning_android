@@ -10,8 +10,7 @@
     <string name="text_blue">Blue</string>
     <string name="text_start">Start</string>
     <string name="text_stop">Stop</string>
-    <string name="text_image">Catedral de Santiago - Compostela</string>
+    <string name="text_image">Cathedral - Santiago de Compostela</string>
     <string name="text_toast_gal">You have selected a Galician province</string>
     <string name="text_toast_no_gal">You have not selected a Galician Province</string>
-
 </resources>
