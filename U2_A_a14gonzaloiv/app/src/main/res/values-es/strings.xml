@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">U2_A_a14gonzaloiv</string>
+    <string name="action_settings">Configuración</string>
+    <string name="text_clear">Limpiar</string>
+    <string name="text_button">Añadir / Limpiar</string>
+    <string name="text_label">Aquí verás el texto que has escrito</string>
+    <string name="text_hint">Escribe algún texto y presiona el botón</string>
+    <string name="text_red">Rojo</string>
+    <string name="text_blue">Azul</string>
+    <string name="text_start">Iniciar</string>
+    <string name="text_stop">Parar</string>
+    <string name="text_image">Catedral de Santiago de Compostela</string>
+    <string name="text_toast_gal">Has seleccionado una provincia gallega</string>
+    <string name="text_toast_no_gal">Has seleccionado una provincia no gallega</string>
+</resources>

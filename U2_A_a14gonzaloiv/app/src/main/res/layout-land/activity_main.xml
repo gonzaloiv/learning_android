@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    android:padding="20dp"
+    android:padding="@dimen/activity_horizontal_margin"
     >
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -55,20 +55,24 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:checked="true"
-            android:text="@string/text_red" />
+            android:text="@string/text_red"
+            android:onClick="onRadioChange"
+            />
 
         <RadioButton
             android:id="@+id/radio_blue"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/text_blue"/>
+            android:text="@string/text_blue"
+            android:onClick="onRadioChange"
+            />
     </RadioGroup>
 
     <View
         android:layout_width="fill_parent"
-        android:layout_height="3dp"
-        android:background="#c0c0c0"/>
+        android:layout_height="@dimen/line_height"
+        android:background="@color/line_black"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -84,7 +88,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="top|center"
+                android:gravity="bottom|center"
                 android:orientation="vertical" >
 
                 <Chronometer
@@ -98,8 +102,8 @@
                     android:id="@+id/switch_chrono"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textOn="@string/text_start"
-                    android:textOff="@string/text_stop"
+                    android:textOn="@string/text_stop"
+                    android:textOff="@string/text_start"
                     />
 
             </LinearLayout>

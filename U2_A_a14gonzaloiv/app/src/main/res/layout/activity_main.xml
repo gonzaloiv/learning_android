@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="20dp"
+    android:padding="@dimen/activity_horizontal_margin"
     >
 
     <EditText
@@ -27,6 +27,7 @@
         android:layout_height="wrap_content"
         android:text="@string/text_button"
         android:layout_gravity="center"
+        android:onClick="onBotonTexto"
         />
 
     <TextView
@@ -48,20 +49,24 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:checked="true"
-            android:text="@string/text_red" />
+            android:text="@string/text_red"
+            android:onClick="onRadioChange"
+            />
 
         <RadioButton
             android:id="@+id/radio_blue"
             android:layout_width="wrap_content"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="@string/text_blue"/>
+            android:text="@string/text_blue"
+            android:onClick="onRadioChange"
+            />
     </RadioGroup>
 
     <View
         android:layout_width="fill_parent"
-        android:layout_height="3dp"
-        android:background="#c0c0c0"/>
+        android:layout_height="@dimen/line_height"
+        android:background="@color/line_black"/>
 
     <Spinner
         android:id="@+id/spinner_provincias"
@@ -71,22 +76,24 @@
 
     <View
         android:layout_width="fill_parent"
-        android:layout_height="3dp"
-        android:background="#c0c0c0"/>
+        android:layout_height="@dimen/line_height"
+        android:background="@color/line_black"/>
 
     <ImageView
         android:id="@+id/img_compostela"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:tag="@string/text_image"
-        android:src="@drawable/compostela"
+        android:src="@mipmap/compostela"
         android:onClick="onImageClick"
+        android:scaleType="fitCenter"
+        android:layout_gravity="center"
         />
 
     <View
         android:layout_width="fill_parent"
-        android:layout_height="3dp"
-        android:background="#c0c0c0"/>
+        android:layout_height="@dimen/line_height"
+        android:background="@color/line_black"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -98,15 +105,15 @@
         android:id="@+id/chrono"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20sp" />
+        android:textSize="@dimen/text_chrono" />
 
 
         <Switch
             android:id="@+id/switch_chrono"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textOn="@string/text_start"
-            android:textOff="@string/text_stop"
+            android:textOn="@string/text_stop"
+            android:textOff="@string/text_start"
             />
 
     </LinearLayout>
