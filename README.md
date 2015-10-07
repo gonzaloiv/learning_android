@@ -1,2 +1,2 @@
 # learning_android
-Projects for the Programación Multimedia e Dispositivos Móbiles class...
+
