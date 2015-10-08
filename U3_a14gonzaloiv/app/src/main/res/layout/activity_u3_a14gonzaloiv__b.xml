@@ -15,12 +15,14 @@
             android:id="@+id/text_edit1"
             android:hint="@string/text_edit1_hint"
             android:layout_width="match_parent"
+            android:inputType="text"
             android:layout_height="wrap_content" />
 
         <EditText
             android:id="@+id/text_edit2"
             android:hint="@string/text_edit2_hint"
             android:layout_width="match_parent"
+            android:inputType="phone"
             android:layout_height="wrap_content" />
 
         <Button

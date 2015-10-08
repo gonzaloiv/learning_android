@@ -2,17 +2,22 @@ package com.example.gonzalo.u3_a14gonzaloiv;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.SearchManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class U3_a14gonzaloiv extends ActionBarActivity {
+
+    private static final int CODE = 33;
 
     Button button1;
     Button button2;
@@ -33,7 +38,7 @@ public class U3_a14gonzaloiv extends ActionBarActivity {
 
                 // Abrir segunda activity
                 Intent secondary = new Intent(U3_a14gonzaloiv.this, U3_a14gonzaloiv_B.class);
-                startActivity(secondary);
+                startActivityForResult(secondary, 33);
 
             }
         });
@@ -42,7 +47,7 @@ public class U3_a14gonzaloiv extends ActionBarActivity {
             @Override
             public boolean onLongClick(View v) {
 
-                // AlertDialog: Chamar ao número ou buscar en google
+                // Chamada ao método de AlertDialog
                 createDialogWindow();
                 return true;
 
@@ -56,6 +61,11 @@ public class U3_a14gonzaloiv extends ActionBarActivity {
 
                 // Toast para amosar o nome e o teléfono da outra activity
                 // Débese conservar o contido desta aínda en horizontal
+                Toast.makeText(
+                        v.getContext(),
+                        "Aquí saírían os datos da Activity 2",
+                        Toast.LENGTH_SHORT).
+                        show();
 
             }
         });
@@ -76,7 +86,9 @@ public class U3_a14gonzaloiv extends ActionBarActivity {
         venta.setPositiveButton(getResources().getString(R.string.dialog_option1), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-
+                Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);
+                intent.putExtra(SearchManager.QUERY, "LoL");
+                U3_a14gonzaloiv.this.startActivity(intent);
             }
         });
 
@@ -84,13 +96,36 @@ public class U3_a14gonzaloiv extends ActionBarActivity {
         venta.setNegativeButton(getResources().getString(R.string.dialog_option2), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-
+                Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:(+34)981588512"));
+                U3_a14gonzaloiv.this.startActivity(intent);
             }
         });
 
         // Mostra o AlertDialog
         venta.create().show();
 
+    }
+
+    // Función para llamar a la activity secundaria esperando datos
+    public void onActivityResult(int requestCode, int resultCode, Intent data){
+        if (requestCode == CODE) {
+            if (resultCode == RESULT_OK) {
+                    Toast.makeText(
+                            this,
+                            data.getExtras().getString("BUSCA") +
+                            data.getExtras().getString("TELEFONO"),
+                            Toast.LENGTH_SHORT).
+                            show();
+
+                // Para saídas incorrectas da activity secundaria
+            } else {
+                Toast.makeText(
+                        this,
+                        "Saíches da actividade secundaria sen premer o botón Pechar",
+                        Toast.LENGTH_SHORT).
+                        show();
+            }
+        }
     }
 
     @Override
