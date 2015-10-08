@@ -1,0 +1,22 @@
+<resources>
+
+    <string name="app_name">U3_a14gonzaloiv</string>
+    <string name="title_activity_u2_a14gonzaloiv__b">U2_a14gonzaloiv_B</string>
+    <string name="action_settings">Settings</string>
+
+    <!--Activity 1-->
+    <string name="button1_content">Datos / Teléfono / Buscador</string>
+    <string name="button2_content">Datos</string>
+
+    <!--Activity 2-->
+    <string name="button3_content">Pechar</string>
+    <string name="text_edit1_hint">Introduce texto</string>
+    <string name="text_edit2_hint">Introduce un número</string>
+
+    <!--Dialog-->
+    <string name="dialog_title">Atención</string>
+    <string name="dialog_message">Escolle busca ou chamada</string>
+    <string name="dialog_option1">Busca</string>
+    <string name="dialog_option2">Teléfono</string>
+
+</resources>
