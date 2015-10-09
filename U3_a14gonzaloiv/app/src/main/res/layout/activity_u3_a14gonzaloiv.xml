@@ -25,6 +25,20 @@
             android:gravity="center"
             android:text="@string/button2_content" />
 
+        <TextView
+            android:id="@+id/text_termo"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="dummy"
+            />
+
+        <TextView
+            android:id="@+id/text_numero"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="dummy"
+            />
+
     </LinearLayout>
 
 </RelativeLayout>

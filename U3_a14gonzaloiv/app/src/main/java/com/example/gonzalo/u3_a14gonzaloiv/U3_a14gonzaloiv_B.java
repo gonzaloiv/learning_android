@@ -31,7 +31,7 @@ public class U3_a14gonzaloiv_B extends ActionBarActivity {
 
                 // Garda os datos para a activity principal
                 Intent data = new Intent();
-                data.putExtra("BUSCA", text1.getText().toString());
+                data.putExtra("TERMO", text1.getText().toString());
                 data.putExtra("NUMERO", text2.getText().toString());
 
                 // Condicións
@@ -46,7 +46,7 @@ public class U3_a14gonzaloiv_B extends ActionBarActivity {
 
     // Función que pecha a actividade
     public void finish() {
-        // Chamada á activity
+        // Chamada á activity para pechar
         super.finish();
     }
 

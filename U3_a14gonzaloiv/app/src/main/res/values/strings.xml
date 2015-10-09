@@ -15,7 +15,7 @@
 
     <!--Dialog-->
     <string name="dialog_title">Atención</string>
-    <string name="dialog_message">Escolle busca ou chamada</string>
+    <string name="dialog_message">Escolle chamada ou busca</string>
     <string name="dialog_option1">Busca</string>
     <string name="dialog_option2">Teléfono</string>
 
