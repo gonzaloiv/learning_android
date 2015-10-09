@@ -17,6 +17,7 @@ import android.widget.Toast;
 public class U3_a14gonzaloiv extends ActionBarActivity {
 
     private static final int CODE = 33;
+    private static final String NOTEXT = "";
 
     Button button1;
     Button button2;
@@ -69,7 +70,7 @@ public class U3_a14gonzaloiv extends ActionBarActivity {
             @Override
             public void onClick(View v) {
 
-                if (text_numero.getText()!="dummy" & text_termo.getText()!="dummy"){
+                if (text_numero.getText().toString().equals(NOTEXT) || text_termo.getText().toString().equals(NOTEXT)){
                     // Toast en caso de non ter introducido datos
                     Toast.makeText(
                             v.getContext(),
@@ -82,8 +83,8 @@ public class U3_a14gonzaloiv extends ActionBarActivity {
                     Toast.makeText(
                             v.getContext(),
                             "Datos introducidos. \n" +
-                                    "Número: " + text_numero.getText() +
-                                    "\nTermo de busca: " + text_termo.getText(),
+                                    "Termo de busca: " + text_termo.getText() +
+                                    "\nTeléfono: " + text_numero.getText(),
                             Toast.LENGTH_SHORT).
                             show();
                 }
@@ -100,7 +101,6 @@ public class U3_a14gonzaloiv extends ActionBarActivity {
 
         venta = new AlertDialog.Builder(U3_a14gonzaloiv.this);
         venta.setTitle(getResources().getString(R.string.dialog_title));
-        venta.setMessage(getResources().getString(R.string.dialog_message));
         venta.setCancelable(true);
 
         // Caso de busca
@@ -109,16 +109,16 @@ public class U3_a14gonzaloiv extends ActionBarActivity {
             public void onClick(DialogInterface dialog, int which) {
 
                 //Sen texto
-                if(dataClass.termo == ""){
-                   Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);
-                   intent.putExtra(SearchManager.QUERY, "casa");
-                   U3_a14gonzaloiv.this.startActivity(intent);
+                if (dataClass.termo == NOTEXT) {
+                    Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);
+                    intent.putExtra(SearchManager.QUERY, "casa");
+                    U3_a14gonzaloiv.this.startActivity(intent);
 
-                // Con texto
+                    // Con texto
                 } else {
-                   Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);
-                   intent.putExtra(SearchManager.QUERY, dataClass.termo);
-                   U3_a14gonzaloiv.this.startActivity(intent);
+                    Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);
+                    intent.putExtra(SearchManager.QUERY, dataClass.termo);
+                    U3_a14gonzaloiv.this.startActivity(intent);
                 }
             }
         });
@@ -129,15 +129,15 @@ public class U3_a14gonzaloiv extends ActionBarActivity {
             public void onClick(DialogInterface dialog, int which) {
 
                 // Sen número
-                if(dataClass.numero == ""){
+                if (dataClass.numero == NOTEXT) {
                     Toast.makeText(
                             U3_a14gonzaloiv.this,
                             "Ningún número introducido...",
                             Toast.LENGTH_SHORT).
                             show();
 
-                // Con número
-                } else{
+                    // Con número
+                } else {
                     Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + dataClass.numero));
                     U3_a14gonzaloiv.this.startActivity(intent);
                 }

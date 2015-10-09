@@ -14,9 +14,9 @@
     <string name="text_edit2_hint">Introduce un número</string>
 
     <!--Dialog-->
-    <string name="dialog_title">Atención</string>
-    <string name="dialog_message">Escolle chamada ou busca</string>
+    <string name="dialog_title">Selecciona</string>
     <string name="dialog_option1">Busca</string>
     <string name="dialog_option2">Teléfono</string>
+    <string name="title_activity_u3_a14gonzaloiv__b">U3_a14gonzaloiv_B</string>
 
 </resources>

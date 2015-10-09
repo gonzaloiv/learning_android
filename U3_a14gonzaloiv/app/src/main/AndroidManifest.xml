@@ -19,10 +19,11 @@
         </activity>
         <activity
             android:name=".U3_a14gonzaloiv_B"
-            android:label="@string/title_activity_u2_a14gonzaloiv__b" >
+            android:label="@string/title_activity_u3_a14gonzaloiv__b" >
         </activity>
     </application>
 
+    // Permisos para chamar e para usar Internet
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
