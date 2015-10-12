@@ -29,10 +29,6 @@ public class U3_B_a14gonzaloiv extends FragmentActivity {
 
     }
 
-    // Botón para pechar os diálogos
-    public void pecharDialogo(){
-        Toast.makeText(this, dialogo_entrada.valorTexto, Toast.LENGTH_LONG).show();
-    }
 
     public void onBotonClick(View view) {
 
@@ -60,7 +56,7 @@ public class U3_B_a14gonzaloiv extends FragmentActivity {
                 break;
 
             case R.id.btn_diag_entrada_texto:
-                dialogo_entrada.show(fm, "Diálogo con entrada de texto");
+                dialogo_entrada.show(fm, "Indica usuario e contrasinal");
                 break;
 
             default:

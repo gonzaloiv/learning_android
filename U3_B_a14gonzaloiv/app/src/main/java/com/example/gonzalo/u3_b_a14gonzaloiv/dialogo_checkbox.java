@@ -9,12 +9,11 @@ import android.widget.Toast;
 
 public class dialogo_checkbox extends DialogFragment{
 
-    // lista para a selección
-    final String[] matriz = getResources().getStringArray(R.array.elementos_dialog_seleccion2);
-
-
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
+        // lista para a selección
+        final String[] matriz = getResources().getStringArray(R.array.elementos_dialog_seleccion2);
+
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity())
                 .setTitle("Selecciona modos de transporte")
                 .setMultiChoiceItems(matriz,
