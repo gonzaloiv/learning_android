@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">U3_B_a14gonzaloiv</string>
+
+    <string-array name="elementos_dialog_seleccion">
+        <item>Opción un</item>
+        <item>Opción dous</item>
+        <item>Opción tres</item>
+        <item>Opción catro</item>
+    </string-array>
+
+    <string-array name="elementos_dialog_seleccion2">
+        <item>Coche</item>
+        <item>Moto</item>
+        <item>Bici</item>
+        <item>Metro</item>
+        <item>Tren</item>
+        <item>Autobús</item>
+        <item>Andando</item>
+    </string-array>
+
+    <string-array name="elementos_dialog_seleccion3">
+        <item>iPhone</item>
+        <item>Blcackberry</item>
+        <item>Android</item>
+    </string-array>
+
+</resources>

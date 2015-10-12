@@ -1,0 +1,68 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Preme nos botóns. Ventás de diálogo" />
+
+    <ScrollView
+        android:id="@+id/screen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/btn_dialogo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onBotonClick"
+                android:text="Ventá de diálogo con mensaxe" >
+            </Button>
+
+            <Button
+                android:id="@+id/btn_diag_tres_botons"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onBotonClick"
+                android:text="Ventá de diálogo con 3 botóns" />
+
+            <Button
+                android:id="@+id/btn_diag_list_selecc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onBotonClick"
+                android:text="V. de diálogo con lista de selección" />
+
+            <Button
+                android:id="@+id/btn_diag_radio_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onBotonClick"
+                android:text="V. de diálogo cunha única selección" />
+
+            <Button
+                android:id="@+id/btn_diag_checkbox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onBotonClick"
+                android:text="V. de diálogo con selección múltiple" />
+
+            <Button
+                android:id="@+id/btn_diag_entrada_texto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onBotonClick"
+                android:text="V. de diálogo con entrada de texto" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
