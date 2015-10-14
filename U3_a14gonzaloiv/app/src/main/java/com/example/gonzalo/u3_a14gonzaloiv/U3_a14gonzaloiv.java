@@ -19,8 +19,8 @@ public class U3_a14gonzaloiv extends ActionBarActivity {
     private static final int CODE = 33;
     private static final String NOTEXT = "";
 
-    Button button1;
-    Button button2;
+    Button button_varios;
+    Button button_datos;
 
     AlertDialog.Builder venta;
 
@@ -32,8 +32,8 @@ public class U3_a14gonzaloiv extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_u3_a14gonzaloiv);
 
-        button1 = (Button) findViewById(R.id.button1);
-        button2 = (Button) findViewById(R.id.button2);
+        button_varios = (Button) findViewById(R.id.button_varios);
+        button_datos = (Button) findViewById(R.id.button_datos);
 
         // Datos segunda activity: Termo de busca e número de teléfono
         text_termo = (TextView) findViewById(R.id.text_termo);
@@ -43,7 +43,7 @@ public class U3_a14gonzaloiv extends ActionBarActivity {
         final Data dataClass = Data.getInstance();
 
         // Listener para el button1 en click corto
-        button1.setOnClickListener(new View.OnClickListener() {
+        button_varios.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -54,7 +54,7 @@ public class U3_a14gonzaloiv extends ActionBarActivity {
             }
         });
         // Listener para el button1 en click largo
-        button1.setOnLongClickListener(new View.OnLongClickListener() {
+        button_varios.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
 
@@ -66,7 +66,7 @@ public class U3_a14gonzaloiv extends ActionBarActivity {
         });
 
         // Listener para el button2
-        button2.setOnClickListener(new View.OnClickListener() {
+        button_datos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -108,18 +108,19 @@ public class U3_a14gonzaloiv extends ActionBarActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
+                // Intent para actividade secundaria
+                Intent intent;
+
                 //Sen texto
                 if (dataClass.termo == NOTEXT) {
-                    Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);
-                    intent.putExtra(SearchManager.QUERY, "casa");
-                    U3_a14gonzaloiv.this.startActivity(intent);
+                    intent = new Intent(Intent.ACTION_WEB_SEARCH).putExtra(SearchManager.QUERY, "casa");
 
                     // Con texto
                 } else {
-                    Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);
+                    intent = new Intent(Intent.ACTION_WEB_SEARCH);
                     intent.putExtra(SearchManager.QUERY, dataClass.termo);
-                    U3_a14gonzaloiv.this.startActivity(intent);
                 }
+                U3_a14gonzaloiv.this.startActivity(intent);
             }
         });
 
@@ -127,6 +128,9 @@ public class U3_a14gonzaloiv extends ActionBarActivity {
         venta.setNegativeButton(getResources().getString(R.string.dialog_option2), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+
+                // Intent para actividade secundaria
+                Intent intent;
 
                 // Sen número
                 if (dataClass.numero == NOTEXT) {
@@ -138,7 +142,7 @@ public class U3_a14gonzaloiv extends ActionBarActivity {
 
                     // Con número
                 } else {
-                    Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + dataClass.numero));
+                    intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + dataClass.numero));
                     U3_a14gonzaloiv.this.startActivity(intent);
                 }
             }

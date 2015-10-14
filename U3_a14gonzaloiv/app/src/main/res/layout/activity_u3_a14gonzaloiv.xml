@@ -12,14 +12,14 @@
         >
 
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/button_varios"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/button1_content" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/button_datos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
