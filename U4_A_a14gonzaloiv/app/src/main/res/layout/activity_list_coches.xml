@@ -10,6 +10,11 @@
     tools:context="com.example.gonzalo.u4_a_a14gonzaloiv.ListCoches"
     android:orientation="vertical">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Selecciona unha marca de coche"/>
+
     <ListView
         android:id="@+id/listCochesches"
         android:layout_width="match_parent"
