@@ -46,9 +46,9 @@ public class U4_Coches extends ActionBarActivity {
             public void onClick(View v) {
 
                 if(radioEngadir.isChecked()){
-                    UtilidadesSD.engadirDatos(false, textCoches, (Activity) U4_Coches.this);
-                }else {
                     UtilidadesSD.engadirDatos(true, textCoches, (Activity) U4_Coches.this);
+                }else {
+                    UtilidadesSD.engadirDatos(false, textCoches, (Activity) U4_Coches.this);
                 }
 
             }
@@ -64,7 +64,7 @@ public class U4_Coches extends ActionBarActivity {
     }
 
 
-    // Método para o diálogo de selección de vista para os datos
+    // Método para o diálogo de selección de vista para os datos do ficheiro
     private void crearDialog(){
         AlertDialog.Builder dialogOpcion = new AlertDialog.Builder(this);
         dialogOpcion.setTitle("Escolle unha opción");

@@ -1,13 +1,10 @@
 package com.example.gonzalo.u4_a_a14gonzaloiv;
 
 import android.app.Activity;
-import android.content.Context;
 import android.os.Environment;
 import android.util.Log;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -35,7 +32,7 @@ public class UtilidadesSD {
         comprobarEstadoSD(main);
         establecerDirectorioFicheiro(main);
 
-        if (sdAccesoEscritura) {
+        if (sdAccesoEscritura && comprobarTexto(textCoches, main)){
             try {
                 // Proceso de escritura atendendo a se sobrescribe ou non
                 OutputStreamWriter osw = new OutputStreamWriter(
@@ -62,6 +59,7 @@ public class UtilidadesSD {
     private static String obterDataActual(){
         String dataActual= "";
         Calendar cal = Calendar.getInstance();
+        // Formato con SimpleDateFormat
         SimpleDateFormat format = new SimpleDateFormat("EEEE, MMMM d, yyyy 'at' h:mm a");
         dataActual=format.format(cal.getTime());
 
@@ -100,10 +98,21 @@ public class UtilidadesSD {
         }
     }
 
+    // Exemplo de posible mellora á hora de introducir datos.
+    // Neste caso sño comproba que hay alg introducido
+   public static Boolean comprobarTexto(TextView textCoches, Activity main){
+
+       Boolean textoCorrecto = true;
+       if(textCoches.getText().toString().equals("")){
+           Toast.makeText(main.getApplicationContext(), "Texto non introducido", Toast.LENGTH_SHORT).show();
+           textoCorrecto = false;
+       }
+       return textoCorrecto;
+   }
+
    public static ArrayList<String> obterDatos(ArrayList<String> datos, Activity main){
 
         String lTexto = "";
-
         // Mantemos a comprobación da SD para a lectura
         comprobarEstadoSD(main);
         establecerDirectorioFicheiro(main);
@@ -115,6 +124,7 @@ public class UtilidadesSD {
 
                 while ((lTexto = br.readLine()) != null) {
                     datos.add(lTexto);
+                    Log.i("Depuración obterDatos", lTexto);
                 }
                 br.close();
 
