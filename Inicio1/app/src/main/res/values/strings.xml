@@ -1,9 +1,0 @@
-<resources>
-    <string name="app_name">Inicio1</string>
-
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
-    <string name="button_toast">Toast</string>
-    <string name="toast_msg">You have pressed the button</string>
-
-</resources>
