@@ -14,6 +14,9 @@ import java.util.ArrayList;
 public class DynamicDialog  extends DialogFragment {
 
     ArrayList<String> listSeleccion = new ArrayList<String>();
+    // Selección inicial para o FragmentDialog
+    boolean[] listCheckedInicio = {true, false, true, false, false, false, true};
+
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -26,9 +29,6 @@ public class DynamicDialog  extends DialogFragment {
         listSeleccion.add(listFrameworks[0]);
         listSeleccion.add(listFrameworks[2]);
         listSeleccion.add(listFrameworks[6]);
-
-        // Selección inicial para o FragmentDialog
-        boolean[] listCheckedInicio = {true, false, true, false, false, false, true};
 
         builder = new AlertDialog.Builder(getActivity())
                 .setTitle("Escolle algúns frameworks")
@@ -51,12 +51,15 @@ public class DynamicDialog  extends DialogFragment {
                     public void onClick(DialogInterface dialog, int which) {
                         Log.i("Seleccionados:", String.valueOf(listSeleccion.size()));
                         Main.cambiarTexto(getListSeleccion(listSeleccion));
+                        // Reseteamos a lista de selección para a seguinte vez
+                        listSeleccion.clear();
                     }
                 })
                 .setNegativeButton("Cancelar", new OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-
+                        // Reseteamos a lista de selección para a seguinte vez
+                        listSeleccion.clear();
                     }
                 });
         return builder.create();
