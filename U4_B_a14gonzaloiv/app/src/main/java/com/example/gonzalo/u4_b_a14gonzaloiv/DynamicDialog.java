@@ -6,26 +6,32 @@ import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
+import android.util.Log;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class DynamicDialog  extends DialogFragment{
+public class DynamicDialog  extends DialogFragment {
+
+    ArrayList<String> listSeleccion = new ArrayList<String>();
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
 
         AlertDialog.Builder builder;
-        final ArrayList<String> listSeleccion = new ArrayList();
-        boolean[] listCheckedInicio = {true, false, true, false, false, false, true};
+
         final String[] listFrameworks = getResources().getStringArray(R.array.opcions_list);
 
+        // Lista de opción seleccionadas enchida coa selección de inicio
+        listSeleccion.add(listFrameworks[0]);
+        listSeleccion.add(listFrameworks[2]);
+        listSeleccion.add(listFrameworks[6]);
+
+        // Selección inicial para o FragmentDialog
+        boolean[] listCheckedInicio = {true, false, true, false, false, false, true};
+
         builder = new AlertDialog.Builder(getActivity())
-                .setTitle("Escolle uns frameworks")
+                .setTitle("Escolle algúns frameworks")
                 .setMultiChoiceItems(
                         listFrameworks,
                         listCheckedInicio,
@@ -43,17 +49,11 @@ public class DynamicDialog  extends DialogFragment{
                 .setPositiveButton("Aceptar", new OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        String textoToast = "";
-                        for(int i = 0; i < listSeleccion.size(); i ++){
-                            textoToast = textoToast + listSeleccion.get(i) + " ";
-                        }
-                        Toast.makeText(
-                                getActivity().getApplicationContext(),
-                                "Seleccionaches: " + textoToast,
-                                Toast.LENGTH_SHORT
-                        ).show();
+                        Log.i("Seleccionados:", String.valueOf(listSeleccion.size()));
+                        Main.cambiarTexto(getListSeleccion(listSeleccion));
                     }
-                }).setNegativeButton("Cancelar", new OnClickListener() {
+                })
+                .setNegativeButton("Cancelar", new OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
@@ -61,4 +61,15 @@ public class DynamicDialog  extends DialogFragment{
                 });
         return builder.create();
     }
+
+    // Método para formatar o ArrayList a String
+    public String getListSeleccion(ArrayList<String> listSeleccion){
+        String textElementos = "Seleccionaches: ";
+        for(int i = 0; i < listSeleccion.size(); i ++){
+            textElementos = textElementos + listSeleccion.get(i) + " ";
+            Log.i("Seleccionados:",listSeleccion.get(i));
+        }
+        return textElementos;
+    }
+
 }
