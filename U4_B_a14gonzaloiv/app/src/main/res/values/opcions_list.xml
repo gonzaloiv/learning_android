@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources name="opcions_list">
+    <string-array name="opcions_list">
+        <item>Angular</item>
+        <item>React</item>
+        <item>Meteor</item>
+        <item>Ember</item>
+        <item>Ionic</item>
+        <item>Backbone</item>
+        <item>Hoodie</item>
+    </string-array>
+</resources>
