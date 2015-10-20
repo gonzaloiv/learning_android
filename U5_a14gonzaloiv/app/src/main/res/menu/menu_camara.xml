@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:U5_a14gonzaloiv="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/itemCamara"
+        android:icon="@mipmap/icon_camara"
+        android:orderInCategory="100"
+        U5_a14gonzaloiv:showAsAction="always"
+        android:title="Cámara" />
+    <item
+        android:id="@+id/itemSair"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="Saír"
+        />
+
+</menu>
