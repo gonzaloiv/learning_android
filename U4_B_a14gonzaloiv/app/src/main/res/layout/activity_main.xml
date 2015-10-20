@@ -13,10 +13,17 @@
 
 
     <Button
-        android:id="@+id/buttonDialogo"
+        android:id="@+id/buttonDialogoShow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Abrir diálogo"
+        android:text="Abrir diálogo(showDialog)"
+        />
+
+    <Button
+        android:id="@+id/buttonDialogoFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Abrir diálogo (dialogFragment)"
         />
 
     <TextView
@@ -25,6 +32,23 @@
         android:layout_height="wrap_content"
         android:text="Aquí saen os elementos seleccionados"
         android:textAlignment="center"
+        android:gravity="center"
+        />
+
+    <EditText
+        android:id="@+id/textEngadir"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Introduce un framework de JS"
+        android:textAlignment="center"
+        android:text=""
+        />
+
+    <Button
+        android:id="@+id/buttonEngadir"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Introducir"
         />
 
 

@@ -10,20 +10,22 @@ import android.util.Log;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class DynamicDialog  extends DialogFragment {
 
-    ArrayList<String> listSeleccion = new ArrayList<String>();
-    // Selección inicial para o FragmentDialog
-    boolean[] listCheckedInicio = {true, false, true, false, false, false, true};
-
+    static ArrayList<String> listSeleccion = new ArrayList<String>();
+    static String[] listFrameworks;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
 
         AlertDialog.Builder builder;
 
-        final String[] listFrameworks = getResources().getStringArray(R.array.opcions_list);
+        // Configuración inicial para o FragmentDialog
+        boolean[] listCheckedInicio = {true, false, true, false, false, true};
+        listFrameworks=getResources().getStringArray(R.array.opcions_list);
 
         // Lista de opción seleccionadas enchida coa selección de inicio
         listSeleccion.add(listFrameworks[0]);
@@ -75,4 +77,8 @@ public class DynamicDialog  extends DialogFragment {
         return textElementos;
     }
 
+    // Método que engade elementos á lista de selección
+    public static void addElementoList(String elemento) {
+
+    }
 }
