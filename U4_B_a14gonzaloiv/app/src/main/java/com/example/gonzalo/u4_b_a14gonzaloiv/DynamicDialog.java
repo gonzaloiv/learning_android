@@ -15,35 +15,42 @@ import java.util.List;
 
 public class DynamicDialog  extends DialogFragment {
 
-    static ArrayList<String> listSeleccion = new ArrayList<String>();
-    static String[] listFrameworks;
-
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
 
         AlertDialog.Builder builder;
 
         // Configuración inicial para o FragmentDialog
-        boolean[] listCheckedInicio = {true, false, true, false, false, true};
+        String[] listFrameworks = new String[Main.listSeleccion.size()];
+        Boolean[] listCheckInicio = new Boolean[Main.listSeleccionados.size()];
+
         listFrameworks=getResources().getStringArray(R.array.opcions_list);
 
+        // Inicio lista de seleccionados
+        Main.listSeleccionados.add(true);
+        Main.listSeleccionados.add(false);
+        Main.listSeleccionados.add(true);
+        Main.listSeleccionados.add(false);
+        Main.listSeleccionados.add(false);
+        Main.listSeleccionados.add(true);
+
         // Lista de opción seleccionadas enchida coa selección de inicio
-        listSeleccion.add(listFrameworks[0]);
-        listSeleccion.add(listFrameworks[2]);
-        listSeleccion.add(listFrameworks[6]);
+        Main.listSeleccion.add(listFrameworks[0]);
+        Main.listSeleccion.add(listFrameworks[1]);
+        Main.listSeleccion.add(listFrameworks[5]);
 
         builder = new AlertDialog.Builder(getActivity())
                 .setTitle("Escolle algúns frameworks")
                 .setMultiChoiceItems(
                         listFrameworks,
-                        listCheckedInicio,
+                        listCheckInicio,
                         new DialogInterface.OnMultiChoiceClickListener(){
                             @Override
                             public void onClick(DialogInterface dialog, int which, boolean isChecked) {
                                 if(isChecked){
-                                    listSeleccion.add(listFrameworks[which]);
-                                } else if(listSeleccion.contains(listFrameworks[which])){
-                                    listSeleccion.remove(listFrameworks[which]);
+                                    Main.listSeleccion.add(listFrameworks[which]);
+                                } else if(Main.listSeleccion.contains(listFrameworks[which])){
+                                    Main.listSeleccion.remove(listFrameworks[which]);
                                 }
                             }
                         }
@@ -51,34 +58,20 @@ public class DynamicDialog  extends DialogFragment {
                 .setPositiveButton("Aceptar", new OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Log.i("Seleccionados:", String.valueOf(listSeleccion.size()));
-                        Main.cambiarTexto(getListSeleccion(listSeleccion));
+                        Log.i("Seleccionados:", String.valueOf(Main.listSeleccion.size()));
+                        Main.cambiarTexto(Main.getListSeleccion(Main.listSeleccion));
                         // Reseteamos a lista de selección para a seguinte vez
-                        listSeleccion.clear();
+                        Main.listSeleccion.clear();
                     }
                 })
                 .setNegativeButton("Cancelar", new OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         // Reseteamos a lista de selección para a seguinte vez
-                        listSeleccion.clear();
+                        Main.listSeleccion.clear();
                     }
                 });
         return builder.create();
     }
 
-    // Método para formatar o ArrayList a String
-    public String getListSeleccion(ArrayList<String> listSeleccion){
-        String textElementos = "Seleccionaches: ";
-        for(int i = 0; i < listSeleccion.size(); i ++){
-            textElementos = textElementos + listSeleccion.get(i) + " ";
-            Log.i("Seleccionados:",listSeleccion.get(i));
-        }
-        return textElementos;
-    }
-
-    // Método que engade elementos á lista de selección
-    public static void addElementoList(String elemento) {
-
-    }
 }
