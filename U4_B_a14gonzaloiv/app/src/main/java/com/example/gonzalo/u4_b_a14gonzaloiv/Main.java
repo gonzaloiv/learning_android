@@ -17,9 +17,11 @@ import java.util.ArrayList;
 public class Main extends FragmentActivity{
 
     // Variables selección
-    static ArrayList<String> listSeleccion = new ArrayList<String>();
-    static  ArrayList<Boolean> listSeleccionados = new ArrayList<Boolean>();
-    String[] listFrameworks;
+    public static ArrayList<String> listSeleccion = new ArrayList<String>();
+    public static String[] listFrameworks;
+    public static boolean[] listCheckInicio;
+
+    public static String[] lol = new String[4];
 
     // Diálogo
     private DynamicDialog dynamicDialog;
@@ -41,6 +43,10 @@ public class Main extends FragmentActivity{
         setContentView(R.layout.activity_main);
 
         textElementos=(TextView) findViewById(R.id.textElementos);
+
+        // Configuración listas de elementos
+        listFrameworks = getResources().getStringArray(R.array.opcions_list);
+        listCheckInicio= new boolean[]{true, false, true, false, false, true};
 
         // Configuración FragmentDialog
         dynamicDialog = new DynamicDialog();
@@ -71,6 +77,7 @@ public class Main extends FragmentActivity{
             @Override
             public void onClick(View v) {
                 addElementoList(textEngadir.getText().toString(), false);
+                textEngadir.setText("");
             }
         });
     }
@@ -84,16 +91,8 @@ public class Main extends FragmentActivity{
     protected Dialog onCreateDialog(int id) {
 
         AlertDialog.Builder builder;
-
-        // Configuración inicial para o FragmentDialog
-        String[] listFrameworks = new String[Main.listSeleccion.size()];
-        Boolean[] listCheckInicio = new Boolean[Main.listSeleccionados.size()];
-
-        listFrameworks=getResources().getStringArray(R.array.opcions_list);
-
-        inicioListas(listFrameworks);
-        convertirBoolean(listSeleccionados, listCheckInicio);
-        convertirString(listSeleccion, listFrameworks);
+        // Inicio selección
+        inicioListaSeleccion();
 
 
         builder = new AlertDialog.Builder(this)
@@ -106,7 +105,7 @@ public class Main extends FragmentActivity{
                             public void onClick(DialogInterface dialog, int which, boolean isChecked) {
                                 if(isChecked){
                                     listSeleccion.add(listFrameworks[which]);
-                                } else if(listSeleccion.contains(listFrameworks[which])){
+                                } else if(Main.listSeleccion.contains(listFrameworks[which])){
                                     listSeleccion.remove(listFrameworks[which]);
                                 }
                             }
@@ -119,6 +118,7 @@ public class Main extends FragmentActivity{
                         Main.cambiarTexto(getListSeleccion(listSeleccion));
                         // Reseteamos a lista de selección para a seguinte vez
                         listSeleccion.clear();
+                        removeDialog(1);
                     }
                 })
                 .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
@@ -126,9 +126,10 @@ public class Main extends FragmentActivity{
                     public void onClick(DialogInterface dialog, int which) {
                         // Reseteamos a lista de selección para a seguinte vez
                         listSeleccion.clear();
+                        removeDialog(1);
                     }
                 });
-        return builder.create();
+        return builder.show();
 
     }
 
@@ -144,46 +145,27 @@ public class Main extends FragmentActivity{
 
     // Método que engade elementos á lista de selección
     public static void addElementoList(String elemento, Boolean estado) {
-        listSeleccion.add(elemento);
-        listSeleccionados.add(estado);
-    }
-
-    // Método para convertir unha lista de String a array
-    public static String[] convertirString(ArrayList<String> lista, String[] array){
-
-        for(int i = 0; i < lista.size(); i++){
-            array[i] = lista.get(i);
+        String[] extraString = listFrameworks;
+        listFrameworks=new String[extraString.length+1];
+        listFrameworks[listFrameworks.length-1] = elemento;
+        for(int i = 0; i < extraString.length; i++){
+            listFrameworks[i] = extraString[i];
+        }
+        boolean[] extraBoolean = listCheckInicio;
+        listCheckInicio=new boolean[extraBoolean.length+1];
+        listCheckInicio[listCheckInicio.length-1] = estado;
+        for(int i = 0; i < extraString.length; i++){
+            listCheckInicio[i] = extraBoolean[i];
         }
 
-        return array;
     }
-
-    // Método para convertir unha lista de String a array
-    public static Boolean[] convertirBoolean(ArrayList<Boolean> lista, Boolean[] array){
-
-        for(int i = 0; i < lista.size(); i++){
-            array[i] = lista.get(i);
+    // Método que inicia a lista de selección ambos Dialog
+    public static void inicioListaSeleccion(){
+        for(int i = 0; i< listFrameworks.length; i++){
+            if(listCheckInicio[i]==true){
+                listSeleccion.add(listFrameworks[i]);
+            }
         }
-
-        return array;
-    }
-
-    public static void inicioListas(String[] listFrameworks){
-
-        // Inicio lista de seleccionados
-        Main.listSeleccionados.add(true);
-        Main.listSeleccionados.add(false);
-        Main.listSeleccionados.add(true);
-        Main.listSeleccionados.add(false);
-        Main.listSeleccionados.add(false);
-        Main.listSeleccionados.add(true);
-
-        // Lista de opción seleccionadas enchida coa selección de inicio
-        Main.listSeleccion.add(listFrameworks[0]);
-        Main.listSeleccion.add(listFrameworks[1]);
-        Main.listSeleccion.add(listFrameworks[5]);
-
-
     }
 
 }

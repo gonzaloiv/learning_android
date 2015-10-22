@@ -20,58 +20,43 @@ public class DynamicDialog  extends DialogFragment {
 
         AlertDialog.Builder builder;
 
-        // Configuración inicial para o FragmentDialog
-        String[] listFrameworks = new String[Main.listSeleccion.size()];
-        Boolean[] listCheckInicio = new Boolean[Main.listSeleccionados.size()];
-
-        listFrameworks=getResources().getStringArray(R.array.opcions_list);
-
-        // Inicio lista de seleccionados
-        Main.listSeleccionados.add(true);
-        Main.listSeleccionados.add(false);
-        Main.listSeleccionados.add(true);
-        Main.listSeleccionados.add(false);
-        Main.listSeleccionados.add(false);
-        Main.listSeleccionados.add(true);
-
-        // Lista de opción seleccionadas enchida coa selección de inicio
-        Main.listSeleccion.add(listFrameworks[0]);
-        Main.listSeleccion.add(listFrameworks[1]);
-        Main.listSeleccion.add(listFrameworks[5]);
+        // Inicio selección
+        Main.inicioListaSeleccion();
 
         builder = new AlertDialog.Builder(getActivity())
                 .setTitle("Escolle algúns frameworks")
                 .setMultiChoiceItems(
-                        listFrameworks,
-                        listCheckInicio,
-                        new DialogInterface.OnMultiChoiceClickListener(){
+                        Main.listFrameworks,
+                        Main.listCheckInicio,
+                        new DialogInterface.OnMultiChoiceClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which, boolean isChecked) {
-                                if(isChecked){
-                                    Main.listSeleccion.add(listFrameworks[which]);
-                                } else if(Main.listSeleccion.contains(listFrameworks[which])){
-                                    Main.listSeleccion.remove(listFrameworks[which]);
+                                if (isChecked) {
+                                    Main.listSeleccion.add(Main.listFrameworks[which]);
+                                } else if (Main.listSeleccion.contains(Main.listFrameworks[which])) {
+                                    Main.listSeleccion.remove(Main.listFrameworks[which]);
                                 }
                             }
                         }
                 )
-                .setPositiveButton("Aceptar", new OnClickListener() {
+                .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         Log.i("Seleccionados:", String.valueOf(Main.listSeleccion.size()));
                         Main.cambiarTexto(Main.getListSeleccion(Main.listSeleccion));
                         // Reseteamos a lista de selección para a seguinte vez
                         Main.listSeleccion.clear();
+
                     }
                 })
-                .setNegativeButton("Cancelar", new OnClickListener() {
+                .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         // Reseteamos a lista de selección para a seguinte vez
                         Main.listSeleccion.clear();
+
                     }
                 });
         return builder.create();
     }
-
 }
