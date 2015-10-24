@@ -5,7 +5,9 @@ import android.graphics.Bitmap;
 import android.provider.MediaStore;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.view.ContextMenu;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -34,14 +36,7 @@ public class U5_a14gonzaloiv extends ActionBarActivity {
         viewImaxe = (ImageView) findViewById(R.id.viewImaxe);
         limparImaxe = (Button) findViewById(R.id.limparImaxe);
 
-        textCamara.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                // Chamada á cámara
-                startActivityForResult(intentCamara, REQUEST_CODE_CAMARA);
-                return true;
-            }
-        });
+        registerForContextMenu(textCamara);
 
         limparImaxe.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,5 +91,32 @@ public class U5_a14gonzaloiv extends ActionBarActivity {
 
     public void finish(){
         super.finish();
+    }
+
+    // Inicio menú contextual
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        MenuInflater inflater = getMenuInflater();
+
+        menu.setHeaderTitle("Cámara");
+        inflater.inflate(R.menu.menu_contextual, menu);
+
+    }
+
+    // Accións que realiza ao seleccionar o menú
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+            case R.id.contextCamara:
+                startActivityForResult(intentCamara, REQUEST_CODE_CAMARA);
+                return true;
+            case R.id.contextCancel:
+                return true;
+            default:
+                return super.onContextItemSelected(item);
+        }
+
     }
 }

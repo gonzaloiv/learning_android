@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:U5_a14gonzaloiv="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/contextCamara"
+        android:showAsAction="withText"
+        U5_a14gonzaloiv:showAsAction="never"
+        android:title="Facer unha foto">
+    </item>
+    <item
+        android:id="@+id/contextCancel"
+        android:showAsAction="withText"
+        U5_a14gonzaloiv:showAsAction="never"
+        android:title="Cancelar">
+    </item>
+
+</menu>
