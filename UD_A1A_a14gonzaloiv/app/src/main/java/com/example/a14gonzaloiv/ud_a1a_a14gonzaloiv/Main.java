@@ -9,8 +9,6 @@ import android.widget.Button;
 
 public class Main extends AppCompatActivity {
 
-    private Base baseDatos;
-
     // View
     Button buttonAlta;
     Button buttonLista;
@@ -20,9 +18,11 @@ public class Main extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Inicio base de datos
-        baseDatos = new Base(getApplicationContext());
-        baseDatos.getWritableDatabase();
+        Base baseDatos = new Base(this);
+        baseDatos.sqlLiteDB = baseDatos.getWritableDatabase();
+        long way = baseDatos.engadirPersoa(new Persoa("John Wayne", "Actor"));
+        way = baseDatos.engadirPersoa(new Persoa("John Ford", "Director"));
+
 
         // Listeners para as activities secundarias
         buttonAlta = (Button) findViewById(R.id.buttonAlta);
@@ -41,6 +41,6 @@ public class Main extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
+
 }

@@ -12,12 +12,17 @@
     >
 
     <Spinner
-        android:id="@+id/spinnerPersoas"
+        android:id="@+id/spinnerNomes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         >
-
     </Spinner>
+
+    <TextView
+        android:id="@+id/textDescricions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
 
     <Button
         android:id="@+id/buttonGardar"

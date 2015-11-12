@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+        android:title="PREFERENCIAS DE DIRECTORIO">
+        <ListPreference
+
+            android:key="@string/pref_directorio"
+            android:title="Preferencias de directorio"
+            android:summary="Escolle o directorio onde gardar información da base de datos"
+            android:dialogTitle="Indicar directorio"
+            android:defaultValue="@string/preferencia_tamanho_por_defecto"
+            android:entries="@array/preferencia_tamanhos_botons"
+            android:entryValues="@array/preferencia_tamanhos_botons_valores" />
+    </PreferenceScreen>
+</PreferenceScreen>

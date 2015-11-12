@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">UD_A1A_a14gonzaloiv</string>
+    <string name="pref_directorio">/DATOS/</string>
+    
 </resources>

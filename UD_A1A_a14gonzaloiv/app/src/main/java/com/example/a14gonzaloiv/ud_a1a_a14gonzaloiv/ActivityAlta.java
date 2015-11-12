@@ -8,7 +8,6 @@ import android.widget.EditText;
 
 public class ActivityAlta extends AppCompatActivity {
 
-    Base baseDatos;
     EditText editNome;
     EditText editDescricion;
 
@@ -19,8 +18,7 @@ public class ActivityAlta extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activity_alta);
 
-        baseDatos = new Base(getApplicationContext());
-
+        // view
         editNome = (EditText) findViewById(R.id.editNome);
         editDescricion = (EditText) findViewById(R.id.editDescricion);
 
@@ -32,7 +30,11 @@ public class ActivityAlta extends AppCompatActivity {
                         editNome.getText().toString(),
                         editDescricion.getText().toString()
                 );
+                Base baseDatos = new Base(ActivityAlta.this);
+                baseDatos.sqlLiteDB = baseDatos.getWritableDatabase();
                 baseDatos.engadirPersoa(persoa);
+                editNome.setText("");
+                editDescricion.setText("");
             }
         });
     }
