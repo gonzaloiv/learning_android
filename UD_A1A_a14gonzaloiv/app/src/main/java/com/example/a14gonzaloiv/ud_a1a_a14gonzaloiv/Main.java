@@ -1,6 +1,5 @@
 package com.example.a14gonzaloiv.ud_a1a_a14gonzaloiv;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,6 +11,7 @@ public class Main extends AppCompatActivity {
     // View
     Button buttonAlta;
     Button buttonLista;
+    Button buttonOpcions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,9 +20,10 @@ public class Main extends AppCompatActivity {
 
         Base baseDatos = new Base(this);
         baseDatos.sqlLiteDB = baseDatos.getWritableDatabase();
-        long way = baseDatos.engadirPersoa(new Persoa("John Wayne", "Actor"));
-        way = baseDatos.engadirPersoa(new Persoa("John Ford", "Director"));
 
+        // Datos insertados a primeira execución se non existen xa
+        baseDatos.engadirPersoa(new Persoa("John Wayne", "Actor"));
+        baseDatos.engadirPersoa(new Persoa("John Ford", "Director"));
 
         // Listeners para as activities secundarias
         buttonAlta = (Button) findViewById(R.id.buttonAlta);
@@ -41,6 +42,13 @@ public class Main extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        buttonOpcions = (Button) findViewById(R.id.buttonOpcions);
+        buttonOpcions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Main.this, ActivityPreferencias.class);
+                startActivity(intent);
+            }
+        });
     }
-
 }

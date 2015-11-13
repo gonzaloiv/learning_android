@@ -1,5 +1,8 @@
 package com.example.a14gonzaloiv.ud_a1a_a14gonzaloiv;
 
+import android.content.SharedPreferences;
+import android.os.Environment;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -62,10 +65,8 @@ public class ActivityLista extends AppCompatActivity {
                 // gardado do item seleccionado para logo gardalo
                 persoaSeleccionada=baseDatos.consultaPersoa(nome);
             }
-
             @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-            }
+            public void onNothingSelected(AdapterView<?> adapterView) {}
         });
 
         buttonGardar.setOnClickListener(new View.OnClickListener() {
@@ -75,8 +76,16 @@ public class ActivityLista extends AppCompatActivity {
                         persoaSeleccionada.getNome() +
                         ", " +
                         persoaSeleccionada.getDescricion();
-                File ruta = getFilesDir();
-                File arquivo = new File(ruta, persoaSeleccionada.getNome() + ".txt");
+                // ruta á SD
+                File ruta = Environment.getExternalStorageDirectory();
+                // ruta das preferencias
+                SharedPreferences preferencias = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                String directorio = preferencias.getString("opcion_ruta", "DATOS/");
+                File dir = new File(ruta, directorio);
+                if(!dir.exists()) dir.mkdirs();
+                // arquivo para o elemento seleccionado
+                File arquivo = new File(dir, persoaSeleccionada.getNome() + ".txt");
+                if(arquivo.exists()) arquivo.delete();
                 try {
                     FileOutputStream fos = new FileOutputStream(arquivo);
                     OutputStreamWriter osr = new OutputStreamWriter(fos);

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class ActivityAlta extends AppCompatActivity {
 
@@ -35,6 +36,8 @@ public class ActivityAlta extends AppCompatActivity {
                 baseDatos.engadirPersoa(persoa);
                 editNome.setText("");
                 editDescricion.setText("");
+                Toast.makeText(ActivityAlta.this, persoa.getNome() + " engadido á base de datos.", Toast.LENGTH_LONG).show();
+
             }
         });
     }

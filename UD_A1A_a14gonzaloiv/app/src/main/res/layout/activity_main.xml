@@ -25,4 +25,11 @@
         android:text="Lista"
         />
 
+    <Button
+        android:id="@+id/buttonOpcions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Opcións"
+        />
+
 </LinearLayout>
