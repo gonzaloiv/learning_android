@@ -23,7 +23,10 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.io.BufferedOutputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -129,9 +132,22 @@ public class Main extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 1) {
             if (resultCode == RESULT_OK) {
-                File arquivoFoto = new File(pathFoto, "thisFoto.jpg");
+                Bitmap bitmapFoto = (Bitmap) data.getExtras().get("data");
                 viewFoto = (ImageView) findViewById(R.id.viewFoto);
-                viewFoto.setImageBitmap((Bitmap) data.getExtras().get("data"));
+                viewFoto.setImageBitmap(bitmapFoto);
+
+                // save the picture into the folder
+                File fileDir = new File(pathFoto);
+                if(!fileDir.exists()) fileDir.mkdirs();
+                File fileFoto = new File(fileDir, "thisFoto.jpeg");
+                try {
+                    FileOutputStream fos = new FileOutputStream(fileFoto);
+                    bitmapFoto.compress(Bitmap.CompressFormat.JPEG, 85, fos);
+                    fos.flush();
+                    fos.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
