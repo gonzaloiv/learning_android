@@ -12,13 +12,13 @@
 
     <Button
         android:id="@+id/btnTEmpezar"
-        android:text="Empezar"
+        android:text="Empezar Thread"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <Button
         android:id="@+id/btnTParar"
-        android:text="Parar"
+        android:text="Parar Thread"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
@@ -30,13 +30,13 @@
 
     <Button
         android:id="@+id/btnAEmpezar"
-        android:text="Empezar"
+        android:text="Empezar Async Task"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <Button
         android:id="@+id/btnAParar"
-        android:text="Parar"
+        android:text="Parar Async Task"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
@@ -48,7 +48,7 @@
 
     <TextView
         android:id="@+id/viewConta"
-        android:hint="Aquí aparece a conta do cronómetro."
+        android:hint="Aquí aparece o número aleatorio."
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         />
