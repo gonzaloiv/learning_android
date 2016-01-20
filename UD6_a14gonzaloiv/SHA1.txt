@@ -1,0 +1,11 @@
+Certificado[1]:
+Propietario: CN=Android Debug, O=Android, C=US
+Emisor: CN=Android Debug, O=Android, C=US
+Número de serie: 5605aea9
+Válido desde: Fri Sep 25 22:29:29 CEST 2015 hasta: Sun Sep 17 22:29:29 CEST 2045
+Huellas digitales del Certificado:
+	 MD5: 0F:40:AA:7D:FB:21:3E:33:9E:D0:3D:3E:EE:2F:85:CA
+	 SHA1: C2:9D:7E:42:CC:74:5F:72:2A:34:21:B6:E3:54:EF:B9:7A:1A:C4:94
+	 SHA256: 22:7D:88:F2:CF:29:2C:37:21:65:14:BC:10:F9:21:6B:2D:75:FC:00:33:51:6B:8E:68:B7:70:AE:BD:98:30:21
+	 Nombre del Algoritmo de Firma: SHA1withRSA
+	 Versión: 3

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/itemCor"
+        android:title="Cor"
+        android:showAsAction="always"
+        >
+        <menu>
+            <group
+                android:checkableBehavior="single"
+                >
+                <item
+                    android:id="@+id/itemAzul"
+                    android:title="Azul"
+                    android:checked="false"
+                    />
+                <item
+                    android:id="@+id/itemVerde"
+                    android:title="Verde"
+                    android:checked="false"
+                    />
+            </group>
+        </menu>
+    </item>
+</menu>
