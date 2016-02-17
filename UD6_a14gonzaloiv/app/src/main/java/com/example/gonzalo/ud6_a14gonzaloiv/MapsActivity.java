@@ -13,6 +13,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -24,38 +25,44 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private GoogleMap mMap;
     // Geolocation variables
     LocationManager locManager;
-    LocationProvider locProv;
-    List<String> listProviders;
+    Location locationHere;
 
+    @SuppressWarnings("ResourceType")
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+
+        // Geolocation Settings
+        locManager = (LocationManager)getSystemService(LOCATION_SERVICE);
+        locManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 500, (LocationListener) this);
+        locationHere = locManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        // Geolocation
-        locManager = (LocationManager)getSystemService(LOCATION_SERVICE);
-        locProv = locManager.getProvider(LocationManager.GPS_PROVIDER);
-        listProviders = locManager.getAllProviders();
-        locManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0 ,500, (LocationListener) this);
     }
-
     // Method for the map once ready
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        CameraPosition position = new CameraPosition.Builder().target(new LatLng(locationHere.getLatitude(), locationHere.getLongitude())).build();
+        mMap.animateCamera(CameraUpdateFactory.newCameraPosition(position));
         mMap.addMarker(new MarkerOptions()
-                .position(mMap.getCameraPosition().target)
-                .icon(BitmapDescriptorFactory.fromResource(R.mipmap.icon)));
+                .position(new LatLng(locationHere.getLatitude(), locationHere.getLongitude()))
+                        .icon(BitmapDescriptorFactory.fromResource(R.mipmap.icon)));
     }
-
     // LocationListener interface methods
     @Override
     public void onLocationChanged(Location location) {
+        locationHere = location;
         Toast.makeText(this, "Nova posición: " + location.getLatitude() + ", " + location.getLongitude(), Toast.LENGTH_SHORT).show();
+        mMap.clear();
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(locationHere.getLatitude(), locationHere.getLongitude()))
+                .icon(BitmapDescriptorFactory.fromResource(R.mipmap.icon)));
     }
 
     @Override

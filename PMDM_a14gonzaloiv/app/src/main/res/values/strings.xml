@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">PMDM_a14gonzaloiv</string>
+    <string name="title_activity_activity_contacto">Map</string>
+    <string name="history_text">
+        A historia do noso IES remóntase ao ano 1948, cando unha viúva compostelá doa uns terreos situados no campo de San Clemente á Igrexa, coa finalidade de que neles se construíse un centro para acoller os nenos pobres da cidade e proporcionarlles uns coñecementos profesionais que lles permitisen no futuro desempeñar un oficio. A doazón realizouse por motivos píos e a Igrexa tutelou o desenvolvemento das obras de edificación a través de D. Fernando Quiroga Palacios.
+        \n\nAínda que o edificio puido estar rematado antes, as súas actividades non comezaron ata o ano 1953 que, curiosamente, coincide tamén co momento en que o Papa Pío XII designa cardeal a Don Fernando Quiroga Palacios.
+        \n\nA historia vén demostrar que o centro sempre estivo vinculado a ensinanzas profesionais: foi escola de traballo, escola de artes, escola de mestría industrial, centro de formación profesional…; non foi ata a última década do século XX cando, coa reforma educativa formulada na LOXSE, pasou a denominarse IES e, xa no século XXI, se introduciron as ensinanzas non estritamente profesionais.
+        \n\nO edificio forma parte, estrutural e arquitectonicamente, do conxunto histórico da cidade. Está distribuído en tres plantas e un soto; posúe seis aulas de informática, cinco aulas para ESA e BAC (adultos), unha sala de usos múltiples (vídeo, conferencias, etc.), un laboratorio, unha biblioteca e outras dependencias dedicadas á administración e servizos.
+        \n\nO centro sempre foi de titularidade pública e, polo tanto, depende da Consellería de Educación e Ordenación Universitaria da Xunta de Galicia.
+    </string>
+    <string name="horario_oficinas">
+        Mañás : de luns a venres : 9:00 – 14:00 h
+        \nTardes : martes e xoves : 17:00 – 19:00 h</string>
+    <string name="horario_centro">De luns a venres : 8:45 – 14:35 e 16:00 – 23:00 h.</string>
+</resources>
