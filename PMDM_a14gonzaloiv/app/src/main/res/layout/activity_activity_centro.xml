@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.gonzalo.pmdm_a14gonzaloiv.ActivityOferta"
+    tools:context="com.example.gonzalo.pmdm_a14gonzaloiv.ActivityCentro"
     android:orientation="vertical"
     >
 
@@ -34,7 +34,6 @@
         android:id="@+id/text_historia"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_marginTop="15dp"
         android:text="@string/history_text"
         android:scrollbars="vertical"
         android:scrollbarStyle="insideOverlay"

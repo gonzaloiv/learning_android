@@ -22,14 +22,12 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyBHMCnxE-rfOmvZsjpl6t7S2TtfXoPNkD8" />
+            android:value="AIzaSyCFhnJ6HMJw_SpOUIYaNg8ik9CJV2hO5MY" />
 
-        <activity
-            android:name=".ActivityContacto"
-            android:label="@string/title_activity_activity_contacto" >
-        </activity>
-        <activity android:name=".ActivityCentro" >
-        </activity>
+        <activity android:name=".ActivityContacto" />
+        <activity android:name=".ActivityCentro" />
+        <activity android:name=".ActivityOferta" />
+        <activity android:name=".ActivityAlumno"/>
     </application>
 
 </manifest>

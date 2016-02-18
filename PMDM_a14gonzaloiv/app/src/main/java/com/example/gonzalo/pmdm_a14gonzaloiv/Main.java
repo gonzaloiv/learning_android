@@ -24,10 +24,12 @@ public class Main extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // SETUP FOR THE BUTTONS (VIEW AND LISTENERS)
         buttons();
 
     }
 
+    // METHOD FOR THE BUTTONS
     private void buttons(){
         btnCentro = (Button) findViewById(R.id.btn_centro);
         btnCentro.setOnClickListener(new View.OnClickListener() {
@@ -41,14 +43,16 @@ public class Main extends AppCompatActivity {
         btnOferta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                intent = new Intent(getApplicationContext(), ActivityOferta.class);
+                startActivity(intent);
             }
         });
         btnAlumno = (Button) findViewById(R.id.btn_alumno);
         btnAlumno.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                intent = new Intent(getApplicationContext(), ActivityAlumno.class);
+                startActivity(intent);
             }
         });
         btnContacto = (Button) findViewById(R.id.btn_contacto);
@@ -61,6 +65,7 @@ public class Main extends AppCompatActivity {
         });
     }
 
+    // LISTENER FOR THE MENU
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()){
@@ -80,9 +85,9 @@ public class Main extends AppCompatActivity {
         }
     }
 
+    // SETUP FOR THE MENU
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.activity_main, menu);
         return true;
     }

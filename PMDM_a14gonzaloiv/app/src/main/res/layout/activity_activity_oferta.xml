@@ -20,13 +20,16 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="15px"
+        android:layout_height="15dp"
         />
 
     <Spinner
         android:id="@+id/spinner_ciclos"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        />
 
     <TextView
         android:id="@+id/txt_ciclo"
@@ -36,12 +39,10 @@
         android:textColor="@color/colorPrimaryDark"
         />
 
-    <TextView
-        android:id="@+id/txt_modulos"
+    <ImageView
+        android:id="@+id/img_modulos"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:textColor="@color/colorPrimaryDark"
+        android:layout_height="400dp"
         />
 
 </LinearLayout>

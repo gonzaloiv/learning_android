@@ -7,6 +7,8 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -26,8 +28,13 @@ public class ActivityContacto extends FragmentActivity implements OnMapReadyCall
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        LatLng ies = new LatLng(43.2, 50.6);
-        mMap.addMarker(new MarkerOptions().position(ies).title("IES San Clemente"));
+        LatLng ies = new LatLng(42.878679,-8.547404);
+        mMap.addMarker(new MarkerOptions().position(ies)
+                .title("IES San Clemente")
+                .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ies_logo))
+        );
+        mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
         mMap.moveCamera(CameraUpdateFactory.newLatLng(ies));
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(17), 2000, null);
     }
 }

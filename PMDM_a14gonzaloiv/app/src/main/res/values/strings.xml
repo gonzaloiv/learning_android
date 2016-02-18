@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">PMDM_a14gonzaloiv</string>
-    <string name="title_activity_activity_contacto">Map</string>
     <string name="history_text">
         A historia do noso IES remóntase ao ano 1948, cando unha viúva compostelá doa uns terreos situados no campo de San Clemente á Igrexa, coa finalidade de que neles se construíse un centro para acoller os nenos pobres da cidade e proporcionarlles uns coñecementos profesionais que lles permitisen no futuro desempeñar un oficio. A doazón realizouse por motivos píos e a Igrexa tutelou o desenvolvemento das obras de edificación a través de D. Fernando Quiroga Palacios.
         \n\nAínda que o edificio puido estar rematado antes, as súas actividades non comezaron ata o ano 1953 que, curiosamente, coincide tamén co momento en que o Papa Pío XII designa cardeal a Don Fernando Quiroga Palacios.
@@ -11,5 +10,11 @@
     <string name="horario_oficinas">
         Mañás : de luns a venres : 9:00 – 14:00 h
         \nTardes : martes e xoves : 17:00 – 19:00 h</string>
-    <string name="horario_centro">De luns a venres : 8:45 – 14:35 e 16:00 – 23:00 h.</string>
+    <string name="horario_centro">
+        De luns a venres :
+        \n8:45 – 14:35 e 16:00 – 23:00 h.
+    </string>
+    <string name="txt_asir">
+        Módulos do primeiro ano Módulos\tHoras Implantación de sistemas operativos\t213 Planificación e administración de redes\t213 Fundamentos de hardware\t107 Xestión de bases de datos\t187 Linguaxes de marcas e sistemas de xestión de información\t133 Formación e orientación laboral\t107
+    </string>
 </resources>
