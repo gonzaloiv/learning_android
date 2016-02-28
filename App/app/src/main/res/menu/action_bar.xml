@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menuColor"
+        android:showAsAction="always"
+        android:title="Cor">
+
+        <menu>
+            <item
+                android:id="@+id/opVerde"
+                android:title="Verde"
+                />
+            <item
+                android:id="@+id/opAzul"
+                android:title="Azul"
+                />
+        </menu>
+
+    </item>
+</menu>

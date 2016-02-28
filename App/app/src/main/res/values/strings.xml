@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">App</string>
+    <string name="etNameHint">Introduce your name</string>
+    <string name="btnCall">Call</string>
+</resources>
