@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.accessibility.AccessibilityManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -18,6 +17,7 @@ public class Main extends AppCompatActivity {
     EditText etName;
     EditText etPhone;
     Button btnCall;
+    Button btnSalary;
     Button btnVideo;
 
     // ACTIVITIES
@@ -57,6 +57,19 @@ public class Main extends AppCompatActivity {
             public void onClick(View view) {
                 intent = new Intent(getApplicationContext(), Video.class);
                 startActivity(intent);
+            }
+        });
+
+        btnSalary = (Button)findViewById(R.id.btnSalary);
+        btnSalary.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(etName.getText().toString().equals("")){
+                    Toast.makeText(getApplicationContext(), "You must introduce a username", Toast.LENGTH_SHORT).show();
+                }else{
+                    intent = new Intent(getApplicationContext(), XML.class);
+                    startActivity(intent);
+                }
             }
         });
 
