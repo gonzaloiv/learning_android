@@ -10,6 +10,11 @@ public class Salary {
         this.totalSalary=total_salary;
     }
 
+    public Salary(){
+        this.month="";
+        this.totalSalary=0;
+    }
+
     public String getMonth() {
         return month;
     }

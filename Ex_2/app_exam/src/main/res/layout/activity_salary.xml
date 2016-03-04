@@ -20,10 +20,22 @@
         android:layout_height="wrap_content" />
 
     <Button
+        android:id="@+id/btnSalariesToFile"
+        android:text="Salaries to file"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
         android:id="@+id/btnXMLSuper"
         android:text="Salary XML Super"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
+    <TextView
+        android:id="@+id/tvSalaries"
+        android:text="Place holder"
+        android:scrollbars="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>
